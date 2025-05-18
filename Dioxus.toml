@@ -4,6 +4,7 @@
 
 # HTML title tag content
 title = "chronoxus"
+base_path = "chronoxus"
 
 # include `assets` in web platform
 [web.resource]

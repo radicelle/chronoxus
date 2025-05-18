@@ -1,0 +1,25 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+month.button {
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+}
+
+.month {
+    font-size: 1.2em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 5px;
+}
+
+.month:hover {
+    background-color: #e0e0e0;
+    cursor: pointer;
+    transform: scale(1.05);
+    color: black; /* Ajoute cette ligne pour changer la couleur du texte */
+}

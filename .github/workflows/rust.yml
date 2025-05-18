@@ -1,18 +1,13 @@
-            - name: Dioxus Deploy
-  # You may pin to the exact commit or the version.
-  # uses: DioxusLabs/deploy-action@52ae34eabc7a5b58a430ad1e3d53f7beae946ac7
-  uses: DioxusLabs/deploy-action@0.1.1
-  with:
-    # dioxus-cli install repo [default: 'DioxusLabs/cli']
-    toolSource: # default is DioxusLabs/cli
-    # Build projects using different modes [default: 'release']
-    buildMode: # default is release
-    # Build projects using a different rust toolchain [default: 'stable']
-    toolchain: # default is stable
-    # The `out_dir` property configured in Dioxus.toml [default: 'dist']
-    outDirectory: # default is dist
-    # Source code root path [default: '.']
-    rootPath: # default is .
-          
+name: github pages
 
-      
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    build-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Dioxus Deploy"
+              uses: DioxusLabs/deploy-action@0.1.2

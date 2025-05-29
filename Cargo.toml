@@ -9,6 +9,7 @@ edition = "2021"
 [dependencies]
 chrono = "0.4.40"
 dioxus = { version = "0.6.0", features = [] }
+num-traits = "0.2.19"
 
 [features]
 default = ["web"]

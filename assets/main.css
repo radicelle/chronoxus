@@ -1,17 +1,178 @@
-/* App-wide styling */
-body {
-    background-color: #ffffff;
-    color: #000000;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 20px;
+/* Global reset/setup - REMAINS THE SAME */
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
 }
 
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* Styles for the main Hero container - REMAINS THE SAME */
 #hero {
-    margin: 0;
+    padding: 20px;
+    width: 100%;
+}
+
+/* Calendar grid styles - REMAINS THE SAME */
+.calendar-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.calendar-item {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.day-header {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #333;
+    text-align: center;
+}
+
+.day-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 1em;
+    text-align: center;
+}
+
+#hero h1, #hero h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* --- Responsive Adjustments for Calendar - REMAINS THE SAME --- */
+@media (max-width: 768px) {
+    .calendar-grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    #hero {
+        padding: 10px;
+    }
+    .calendar-grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 10px;
+        padding: 10px;
+    }
+    .calendar-item {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    .day-header {
+        font-size: 0.9em;
+        margin-bottom: 6px;
+    }
+    .day-input {
+        font-size: 0.9em;
+        padding: 8px;
+    }
 }
 
 
+/* --- CSS for Months --- */
+
+#month_banner { /* REMAINS THE SAME */
+    width: 100%;
+    padding: 20px 0;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.month-buttons-container { /* REMAINS THE SAME */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 0 10px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.month-button {
+    padding: 12px 20px;
+    text-align: center;
+    font-size: 0.95em;
+    color: #495057;
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    cursor: pointer;
+    flex-grow: 1;
+    flex-basis: 100px;
+    min-width: 90px;
+
+    transition-property: background-color, border-color, transform, box-shadow, color;
+    transition-duration: 0.15s;
+    transition-timing-function: ease-out;
+    will-change: transform, box-shadow; /* Keep will-change for potential transform/shadow on non-selected states */
+}
+
+.month-button:hover {
+    background-color: #e9ecef;
+    border-color: #adb5bd;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #212529;
+}
+
+.month-button:active {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    background-color: #dee2e6; /* Slightly darker for active press */
+}
+
+/* MODIFICATION FOR SELECTED STATE: */
+.month-button.selected,
+.month-button.selected:hover, /* Ensure selected styles persist even on hover */
+.month-button.selected:active { /* Ensure selected styles persist even on active */
+    background-color: #007bff;
+    color: white;
+    border-color: #0056b3; /* A more distinct border for selected state */
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
+    transform: translateY(0); /* Keep selected button flat, no lift on hover */
+    /* will-change: auto; */ /* Optionally reset will-change if it's purely static,
+                                 though usually fine to leave as inherited from .month-button */
+}
+
+/* Responsive adjustments for month buttons - REMAINS THE SAME */
+@media (max-width: 600px) {
+    .month-button {
+        flex-basis: 120px;
+        font-size: 0.9em;
+        padding: 10px 15px;
+    }
+    .month-buttons-container {
+        gap: 8px;
+    }
+}
+
+@media (max-width: 400px) {
+    .month-button {
+        flex-basis: calc(50% - 4px);
+        min-width: unset;
+    }
+}

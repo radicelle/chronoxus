@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>chronoxus</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+  <link rel="preload" as="script" href="/chronoxus/assets/chronoxus-ee6bdc9cb3c0e8b4.js" crossorigin><link rel="preload" as="fetch" type="application/wasm" href="/chronoxus/assets/chronoxus_bg-db8e9f3b6efc240e.wasm" crossorigin></head>
+  <body>
+    <div id="main"></div>
+  <script>
+            // We can't use a module script here because we need to start the script immediately when streaming
+            import("/chronoxus/assets/chronoxus-ee6bdc9cb3c0e8b4.js").then(
+                ({ default: init }) => {
+                init("/chronoxus/assets/chronoxus_bg-db8e9f3b6efc240e.wasm").then((wasm) => {
+                    if (wasm.__wbindgen_start == undefined) {
+                    wasm.main();
+                    }
+                });
+                }
+            );
+            </script>
+            
+            </body>
+</html>

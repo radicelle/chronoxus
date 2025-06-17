@@ -7,9 +7,15 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-chrono = "0.4.40"
+chrono = "0.4.41"
 dioxus = { version = "0.6.0", features = [] }
 num-traits = "0.2.19"
+serde = { version = "1.0.219", features = ["derive"] }
+serde_yaml = "0.9.34"
+web-sys = { version = "0.3", features = ["Blob", "Url", "HtmlAnchorElement", "Document", "Window"] }
+wasm-bindgen = "0.2"
+js-sys = "0.3"
+icalendar = "0.16.0"
 
 [features]
 default = ["web"]

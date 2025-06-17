@@ -1,9 +1,12 @@
 mod months;
 mod inputs;
 mod calendar_grid;
+mod header;
+mod calendar;
 
 use months::{Months};
 use inputs::{Inputs};
+use header::{Header};
 use dioxus::prelude::*;
 
 const MAIN_CSS: Asset = asset!("/assets/main.css");
@@ -16,8 +19,8 @@ fn main() {
 fn App() -> Element {
     rsx! {
         document::Link { rel: "stylesheet", href: MAIN_CSS }
+        Header {}
         Hero {}
-
     }
 }
 

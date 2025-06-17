@@ -141,8 +141,9 @@ html, body {
 }
 
 .month-button:active {
+    transform: translateY(0px);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    background-color: #dee2e6; /* Slightly darker for active press */
+    background-color: #5a93b8; /* Slightly darker for active press */
 }
 
 /* MODIFICATION FOR SELECTED STATE: */
@@ -174,5 +175,245 @@ html, body {
     .month-button {
         flex-basis: calc(50% - 4px);
         min-width: unset;
+    }
+}
+
+/* --- CSS for Daily Input Container --- */
+#daily_input {
+    position: relative; /* Needed for the sticky button positioning context */
+    padding-bottom: 80px; /* Add padding at the bottom to prevent content from being hidden behind the sticky button */
+}
+
+/* Responsive adjustments for daily input container */
+@media (max-width: 768px) {
+    #daily_input {
+        padding-bottom: 70px; /* Slightly less padding for medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    #daily_input {
+        padding-bottom: 60px; /* Even less padding for small screens */
+    }
+}
+
+/* --- CSS for Create Button --- */
+.create-button {
+    display: block;
+    position: sticky;
+    bottom: 20px;
+    margin: 30px auto;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    text-align: center;
+    max-width: 300px;
+    width: 80%;
+    z-index: 100; /* Ensure button stays on top of other elements */
+}
+
+.create-button:hover {
+    background-color: #0069d9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+.create-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments for create button */
+@media (max-width: 768px) {
+    .create-button {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+        margin: 25px auto;
+        bottom: 15px; /* Adjust bottom position for medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .create-button {
+        padding: 10px 25px;
+        font-size: 1rem;
+        margin: 20px auto;
+        width: 90%;
+        bottom: 10px; /* Adjust bottom position for small screens */
+    }
+}
+
+/* --- CSS for Header --- */
+#header {
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Colorful and vibrant logo */
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ff4e50, #f9d423, #00c9ff, #92fe9d);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 8s ease infinite;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    letter-spacing: 1px;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.settings-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.settings-icon:hover {
+    transform: rotate(30deg);
+    background-color: rgba(0,0,0,0.05);
+}
+
+/* Text input window */
+.text-input-window {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.text-input-window.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.text-input-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    width: 80%;
+    max-width: 800px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.text-input-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.text-input-header h3 {
+    margin: 0;
+    color: #333;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #777;
+    padding: 0 5px;
+}
+
+.close-button:hover {
+    color: #333;
+}
+
+.large-text-input {
+    width: 100%;
+    height: 300px;
+    padding: 15px;
+    border: none;
+    resize: none;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.large-text-input:focus {
+    outline: none;
+}
+
+/* Responsive adjustments for header */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .settings-icon {
+        font-size: 1.3rem;
+    }
+
+    .text-input-container {
+        width: 90%;
+    }
+
+    .large-text-input {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    #header {
+        padding: 10px 15px;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
+
+    .settings-icon {
+        font-size: 1.2rem;
+    }
+
+    .text-input-container {
+        width: 95%;
+    }
+
+    .large-text-input {
+        height: 200px;
+        padding: 10px;
     }
 }
